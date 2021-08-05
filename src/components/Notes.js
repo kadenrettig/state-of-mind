@@ -1,4 +1,11 @@
-function Notes() {
+import { useState } from "react";
+
+function Notes({ text, handleChange, status, setStatus }) {
+  function saveText() {
+    localStorage.setItem("note", text);
+    setStatus("saved");
+  }
+
   return (
     <>
       <section
@@ -16,16 +23,21 @@ function Notes() {
               </h3>
               <div className="p-2">
                 <textarea
-                  className="w-full h-auto px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                  className="w-full h-auto px-3 py-2 text-base text-black placeholder-gray-600 border rounded-lg focus:shadow-outline"
                   placeholder="What would you like to remember?"
+                  value={text}
+                  onChange={handleChange}
                 ></textarea>
               </div>
               <div className="p-2 grid justify-items-center grid-cols-2">
-                <button className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800">
+                <button
+                  onClick={saveText}
+                  className="h-12 px-6 m-2 text-lg text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg focus:shadow-outline hover:bg-indigo-800"
+                >
                   Save
                 </button>
                 <h2 className="h-12 px-6 m-2 text-lg text-gray-600 rounded-lg hover:text-gray-700">
-                  Currently Saved
+                  {status}
                 </h2>
               </div>
             </div>
