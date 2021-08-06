@@ -15,15 +15,15 @@ function Notes({ text, handleChange, status, setStatus }) {
         <h2 className="pt-10 text-center text-2xl font-bold text-white font-serif">
           What's On Your Mind?
         </h2>
-        <ul className="pt-8 px-40">
-          <li className="bg-gray-200 shadow-lg rounded-lg overflow-hidden">
+        <ul className="screen/4 pt-8 px-40">
+          <li className="bg-gray-200 h-full shadow-lg rounded-lg overflow-hidden">
             <div>
               <h3 className="p-2 text-center shadow-lg font-bold font-serif bg-yellow-300 ">
                 Notes
               </h3>
               <div className="p-2">
                 <textarea
-                  className="w-full h-auto px-3 py-2 text-base text-black placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                  className="resize-none w-full h-96 px-3 py-2 text-base text-black placeholder-gray-600 border rounded-lg focus:shadow-outline"
                   placeholder="What would you like to remember?"
                   value={text}
                   onChange={handleChange}

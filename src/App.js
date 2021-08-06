@@ -15,6 +15,13 @@ function App() {
   }
 
   useEffect(() => {
+    if (text) {
+      localStorage.setItem("note", text);
+      setStatus("saved");
+    }
+  }, [text]);
+
+  useEffect(() => {
     const data = localStorage.getItem("note");
     if (data) {
       updateText(data);
